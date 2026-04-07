@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniella Kembo | Automation Engineer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🔥 LOADER -->
+<div id="loader">
+    <div class="spinner"></div>
+    <p>Initialisation du système...</p>
+</div>
+
+<!-- 🔥 HERO -->
+<header class="hero">
+    <div class="hero-content">
+        <h1>Daniella Kembo Diwa</h1>
+        <p class="typewriter">
+            Automatisation des systèmes | Intelligence artificielle | Innovation
+        </p>
+        <p class="tagline">
+            Je conçois des solutions simples pour automatiser des systèmes complexes.
+        </p>
+        <a href="#contact" class="btn">Me contacter</a>
+    </div>
+</header>
+
+<!-- 🔥 NAVBAR -->
+<nav class="navbar">
+    <a href="#value">Valeur</a>
+    <a href="#skills">Compétences</a>
+    <a href="#projects">Projets</a>
+    <a href="#experience">Expérience</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- 🔥 VALEUR -->
+<section id="value" class="section fade-in">
+    <h2>Ce que je peux apporter</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Automatisation</h3>
+            <p>Réduction du travail manuel grâce à des scripts et outils comme Ansible.</p>
+        </div>
+        <div class="card">
+            <h3>Fiabilité</h3>
+            <p>Solutions structurées, testées et organisées.</p>
+        </div>
+        <div class="card">
+            <h3>Apprentissage rapide</h3>
+            <p>Capacité à monter en compétence rapidement sur de nouvelles technologies.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 🔥 SKILLS -->
+<section id="skills" class="section dark fade-in">
+    <h2>Compétences techniques</h2>
+    <div class="grid">
+        <div class="card">Ansible (bases)</div>
+        <div class="card">Linux</div>
+        <div class="card">Réseaux</div>
+        <div class="card">Python</div>
+        <div class="card">Crontab</div>
+        <div class="card">Docker</div>
+        <div class="card">Active Directory</div>
+        <div class="card">PowerShell • Git • Bash</div>
+    </div>
+</section>
+
+<!-- 🔥 PROJETS -->
+<section id="projects" class="section fade-in">
+    <h2>Projets techniques</h2>
+
+    <div class="project">
+        <h3>Automatisation de déploiement</h3>
+        <p><strong>Objectif :</strong> automatiser l’installation d’un serveur</p>
+        <p><strong>Outils :</strong> Ansible, Linux</p>
+        <p><strong>Résultat :</strong> réduction du temps d’installation</p>
+    </div>
+
+    <div class="project">
+        <h3>Portfolio web</h3>
+        <p><strong>Objectif :</strong> présence professionnelle</p>
+        <p><strong>Outils :</strong> HTML, CSS</p>
+        <p><strong>Résultat :</strong> site responsive</p>
+    </div>
+</section>
+
+<!-- 🔥 EXPERIENCE -->
+<section id="experience" class="section dark fade-in">
+    <h2>Expérience</h2>
+    <ul>
+        <li><strong>Stagiaire système et réseau</strong> – configuration et support</li>
+        <li><strong>Service à la clientèle</strong> – communication clients</li>
+        <li><strong>Tutrice (3 ans)</strong> – pédagogie</li>
+    </ul>
+</section>
+
+<!-- 🔥 CTA -->
+<section class="section highlight fade-in">
+    <h2>Disponible pour un stage</h2>
+    <p>
+        Je suis actuellement à la recherche d’un stage en automatisation et systèmes informatiques.
+    </p>
+    <a href="#contact" class="btn">Me contacter</a>
+</section>
+
+<!-- 🔥 PROJET DEMO -->
+<section class="section dark fade-in">
+    <h2>Projet réel : AutoDeploy</h2>
+
+    <p>
+        Simulation d’un outil d’automatisation inspiré d’Ansible.
+        Interface web + backend Python.
+    </p>
+
+    <button onclick="runScript()" class="btn">
+        Lancer le déploiement
+    </button>
+
+    <pre id="output"></pre>
+</section>
+
+<!-- 🔥 TERMINAL -->
+<section class="section dark fade-in">
+    <h2>Simulation système</h2>
+
+    <div class="terminal">
+        <p>> lancement du système...</p>
+        <p>> connexion aux serveurs...</p>
+        <p>> automatisation en cours...</p>
+        <p>> statut : opérationnel ✅</p>
+    </div>
+</section>
+
+<!-- 🔥 CONTACT -->
+<section id="contact" class="section fade-in">
+    <h2>Contact</h2>
+    <p>Email : kembodaniella@gmail.com</p>
+    <p>Disponible pour stage en automatisation / IT</p>
+</section>
+
+<!-- 🔥 FOOTER -->
+<footer>
+    <p>© 2026 Daniella Kembo Diwa</p>
+</footer>
+
+<!-- 🔥 SCRIPTS -->
+<script>
+
+// Loader
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+    }, 1500);
+});
+
+// Scroll animation
+const elements = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+});
+
+elements.forEach(el => observer.observe(el));
+
+// Backend Python trigger
+function runScript() {
+    const btn = document.querySelector("button");
+    const output = document.getElementById("output");
+
+    btn.innerHTML = "Déploiement en cours...";
+    btn.disabled = true;
+
+    fetch('/run')
+    .then(res => res.text())
+    .then(data => {
+        output.textContent = data;
+        btn.innerHTML = "Relancer";
+        btn.disabled = false;
+    });
+}
+
+</script>
+
+</body>
+</html>
