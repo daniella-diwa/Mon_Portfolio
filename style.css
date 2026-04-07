@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+.profile-photo {
+    width: 150px;          /* Taille de la photo */
+    height: 150px;         /* Taille carrée */
+    object-fit: cover;     /* Coupe la photo pour remplir le carré */
+    border-radius: 50%;    /* Photo ronde */
+    display: block;
+    margin: 0 auto 20px auto; /* Centre et espace en dessous */
+    border: 3px solid #4CAF50; /* Optionnel : bordure colorée */
+}
+
 /* BODY */
 body {
     font-family: 'Segoe UI', sans-serif;
